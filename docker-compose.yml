@@ -1,0 +1,26 @@
+#building a compose file for multicontainer service
+
+services:
+  drupal:
+    image: drupal
+    ports:
+      - "8080:80"
+    volumes:
+      - "drupal-modules:/var/www/html/modules"
+      - "drupal-profiles:/var/www/html/profiles"
+      - "drupal-themes:/var/www/html/themes"
+      - "drupal-sites:/var/www/html/sites"
+  postgres:
+    environment:
+      - POSTGRES_PASSWORD=2222
+    image: postgres
+volumes:
+  drupal-modules:
+
+  drupal-profiles:
+
+  drupal-themes:
+
+  drupal-sites:
+version: "2"
+
